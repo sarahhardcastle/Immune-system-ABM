@@ -36,11 +36,11 @@ spd=agt.speed;                      %infected_cell migration speed in units per 
 eaten=0;
 
 typ=MESSAGES.atype;                                         %extract types of all agents
-rb=find(typ==1);                                            %indices of all rabbits
-rpos=MESSAGES.pos(rb,:);                                     %extract positions of all rabbits
+hc=find(typ==1);                                            %indices of all rabbits
+rpos=MESSAGES.pos(hc,:);                                     %extract positions of all rabbits
 csep=sqrt((rpos(:,1)-pos(:,1)).^2+(rpos(:,2)-pos(:,2)).^2);  %calculate distance to all rabbits
 [d,ind]=min(csep);                                            %d is distance to closest rabbit, ind is index of that rabbit
-nrst=rb(ind);                                                %index of nearest rabbit(s)
+nrst=hc(ind);                                                %index of nearest rabbit(s)
 
 if d<=spd&length(nrst)>0    %if there is at least one  rabbit within the search radius        
     if length(nrst)>1       %if more than one rabbit located at same distance then randomly pick one to head towards

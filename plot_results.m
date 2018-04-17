@@ -50,17 +50,17 @@ function plot_results(agent,nsteps,fmode,outImages)
         set(f2,'Position',[0.5 0.5 0.45 0.4]);
 
         subplot(3,1,1),cla
-        subplot(3,1,1),plot((1:N_IT+1),nr(1:N_IT+1),col{1});
-        subplot(3,1,1),axis([0 nsteps 0 1.1*max(nr)]);
+        subplot(3,1,1),plot((1:N_IT+1),nhc(1:N_IT+1),col{1});
+        subplot(3,1,1),axis([0 nsteps 0 1.1*max(nhc)]);
         subplot(3,1,2),cla
-        subplot(3,1,2),plot((1:N_IT+1),nf(1:N_IT+1),col{2});
-        subplot(3,1,2),axis([0 nsteps 0 1.1*max(nf)]);
+        subplot(3,1,2),plot((1:N_IT+1),nic(1:N_IT+1),col{2});
+        subplot(3,1,2),axis([0 nsteps 0 1.1*max(nic)]);
         subplot(3,1,3),cla
-        subplot(3,1,3),plot((1:N_IT+1),tot_food(1:N_IT+1),'m-');
-        subplot(3,1,3),axis([0 nsteps 0 tot_food(1)]);
-        subplot(3,1,1),title('No. live rabbits');
-        subplot(3,1,2),title('No. live foxes');
-        subplot(3,1,3),title('Total food');
+        subplot(3,1,3),plot((1:N_IT+1),nwc(1:N_IT+1),'m-');
+        subplot(3,1,3),axis([0 nsteps 0 1.1*max(nwc)]);
+        subplot(3,1,1),title('No. Healthy Cells');
+        subplot(3,1,2),title('No. Infected Cells');
+        subplot(3,1,3),title('No. White Blood Cells');
         drawnow
 
         %create plot of agent locations. 

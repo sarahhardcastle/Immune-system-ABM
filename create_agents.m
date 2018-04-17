@@ -45,7 +45,7 @@ for ic=nhc+1:nhc+nic
 end
 
 for wc=nhc+nic+1:nhc+nic+nwc
-    pos=icloc(wc-(nhc+nic),:);
+    pos=wcloc(wc-(nhc+nic),:);
     %create white cell agents with random ages between 0 and 10 days and random
     %food levels 20-40
     age=ceil(rand*10);
