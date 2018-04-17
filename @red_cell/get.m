@@ -1,13 +1,11 @@
 function val=get(c,prop_name)
 
-%standard function to allow extraction of memory parameters from rabbit object
+%standard function to allow extraction of memory parameters from red_cell object
 
 switch prop_name
    
 case 'age'
    val=c.age;
-case 'food'
-   val=c.food;
 case 'pos'
     val=c.pos;
 case 'speed'

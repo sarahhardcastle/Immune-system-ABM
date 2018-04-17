@@ -3,7 +3,7 @@ classdef red_cell   %declares red blood cell object
         age; 
         pos;
         speed;
-        last_breed;
+        last_split;
     end
     methods                         %note that this class definition mfile contains only the constructor method!
                                     %all additional member functions associated with this class are included as separate mfiles in the @rabbit folder. 
@@ -22,19 +22,19 @@ classdef red_cell   %declares red blood cell object
                        r.age=[];	
                        r.pos=[];
                        r.speed=[];
-                       r.last_breed=[];
+                       r.last_split=[];
                     case 1              %input is already a rabbit, so just return!
-                       if (isa(varargin{1},'rabbit'))		
+                       if (isa(varargin{1},'red_cell'))		
                             r=varargin{1};
                        else
-                            error('Input argument is not a rabbit')
+                            error('Input argument is not a red_cell')
                             
                        end
-                    case 5               %create a new rabbit (currently the only constructor method used)
+                    case 4               %create a new rabbit (currently the only constructor method used)
                        r.age=varargin{1};               %age of rabbit object in number of iterations
-                       r.pos=varargin{3};               %current position in Cartesian co-ords [x y]
-                       r.speed=varargin{4};             %number of kilometres rabbit can migrate in 1 day
-                       r.last_breed=varargin{5};        %number of iterations since rabbit last reproduced.
+                       r.pos=varargin{2};               %current position in Cartesian co-ords [x y]
+                       r.speed=varargin{3};             %number of kilometres rabbit can migrate in 1 day
+                       r.last_split=varargin{4};        %number of iterations since rabbit last reproduced.
                     otherwise
                        error('Invalid no. of input arguments')
                 end

@@ -4,15 +4,13 @@ function c=set(c,prop_name,val)
 
 switch prop_name
    
-case 'food'
-   c.food=val;
 case 'pos'
     c.pos=val; 
 case 'age'
    c.age=val;
 case 'speed'
    c.speed=val; 
-case 'last_breed'
+case 'last_split'
    c.last_breed=val; 
 otherwise 
    error('invalid field name')
