@@ -1,4 +1,4 @@
-function ecolab(size,nr,nf,nsteps,fmode,outImages)
+function ecolab(size,nhc,nic,nwc,nsteps,fmode,outImages)
 
 %ECO_LAB  agent-based predator-prey model, developed for
 %demonstration purposes only for University of Sheffield module
@@ -39,9 +39,9 @@ function ecolab(size,nr,nf,nsteps,fmode,outImages)
     create_params;                      %sets the parameters for this simulation
     create_environment(size);           %creates environment data structure, given an environment size
     random_selection(1);                %randomises random number sequence (NOT agent order). If input=0, then simulation should be identical to previous for same initial values
-    [agent]=create_agents(nr,nf);       %create nr rabbit and nf fox agents and places them in a cell array called 'agents'
-    create_messages(nr,nf,agent);       %sets up the initial message lists
-    initialise_results(nr,nf,nsteps);   %initilaises structure for storing results
+    [agent]=create_agents(nhc,nic,nwc);       %create nr rabbit and nf fox agents and places them in a cell array called 'agents'
+    create_messages(nhc,nic,nwc,agent);       %sets up the initial message lists
+    initialise_results(nhc,nic,nwc,nsteps);   %initilaises structure for storing results
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %MODEL EXECUTION
     for n_it=1:nsteps                   %the main execution loop
@@ -59,15 +59,15 @@ function ecolab(size,nr,nf,nsteps,fmode,outImages)
                    CONTROL_DATA.fmode_display_every = CONTROL_DATA.fmode_control(2,test_l);
                end
            end
-            if IT_STATS.tot_r(n_it) == 0             %fastmode convergence - all rabbits eaten - all foxes will now die
-                disp('Fast mode convergence criteria satisfied - no rabbits left alive! > ')
+            if IT_STATS.tot_ic(n_it) == 0             %fastmode convergence - all rabbits eaten - all foxes will now die
+                disp('Fast mode convergence criteria satisfied - no infected cells left! > ')
                 break
             end  
-            if IT_STATS.tot_f(n_it) == 0             %fastmode convergence - all foxes starved - rabbits will now proliferate unchecked until all vegitation is eaten
-                disp('Fast mode convergence criteria satisfied - no foxes left alive ! > ')
+            if IT_STATS.tot_hc(n_it) == 0             %fastmode convergence - all foxes starved - rabbits will now proliferate unchecked until all vegitation is eaten
+                disp('Fast mode convergence criteria satisfied - no white cells left! > ')
                 break
             end
         end
     end
-eval(['save results_nr_' num2str(nr) '_nf_' num2str(nf) '.mat IT_STATS ENV_DATA' ]);
+eval(['save results_nhc_' num2str(nhc) '.mat IT_STATS ENV_DATA' ]);
 clear global

@@ -21,15 +21,16 @@ function plot_results(agent,nsteps,fmode,outImages)
     %broadcast to each other
 
     %write results to the screen
-    nr=IT_STATS.tot_r;
-    nf=IT_STATS.tot_f;
+    nhc=IT_STATS.tot_hc;
+    nic=IT_STATS.tot_ic;
+    nwc=IT_STATS.tot_wc;
     disp(strcat('Iteration = ',num2str(N_IT)))
-    disp(strcat('No. new rabbits = ',num2str(IT_STATS.div_r(N_IT+1))))
-    disp(strcat('No. new foxes = ',num2str(IT_STATS.div_f(N_IT+1))))
-    disp(strcat('No. agents migrating = ',num2str(IT_STATS.mig(N_IT+1))))
-    disp(strcat('No. rabbits dying = ',num2str(IT_STATS.died_r(N_IT+1))))
-    disp(strcat('No. foxes dying = ',num2str(IT_STATS.died_f(N_IT+1))))
-    disp(strcat('No. rabbits eaten = ',num2str(IT_STATS.eaten(N_IT+1))))
+%     disp(strcat('No. new rabbits = ',num2str(IT_STATS.div_r(N_IT+1))))
+%     disp(strcat('No. new foxes = ',num2str(IT_STATS.div_f(N_IT+1))))
+%     disp(strcat('No. agents migrating = ',num2str(IT_STATS.mig(N_IT+1))))
+%     disp(strcat('No. rabbits dying = ',num2str(IT_STATS.died_r(N_IT+1))))
+%     disp(strcat('No. foxes dying = ',num2str(IT_STATS.died_f(N_IT+1))))
+%     disp(strcat('No. rabbits eaten = ',num2str(IT_STATS.eaten(N_IT+1))))
 
     %plot line graphs of agent numbers and remaining food
     if (fmode==false) || (N_IT==nsteps) || ((fmode==true) && (rem(N_IT , CONTROL_DATA.fmode_display_every)==0))
@@ -38,11 +39,12 @@ function plot_results(agent,nsteps,fmode,outImages)
         %This value increases with the number of agents (see ecolab.m L57-61) as plotting more agents takes longer. 
         %fmode can be turned off in the command line - see ecolab documentation
 
-        col{1}='r-';                   %set up colours that will represent different cell types red for rabbits, blue for foxes
-        col{2}='b-';
+        col{1}='g-';                   %set up colours that will represent different cell types red for rabbits, blue for foxes
+        col{2}='r-';
+        col{3}='b-';
 
         tot_food=IT_STATS.tfood;       %total food remaining
-        n=nr(N_IT+1)+nf(N_IT+1);             %current agent number
+        n=nhc(N_IT+1)+nic(N_IT+1)+nwc(N_IT+1);             %current agent number
         f2=figure(2);
         set(f2,'Units','Normalized');
         set(f2,'Position',[0.5 0.5 0.45 0.4]);

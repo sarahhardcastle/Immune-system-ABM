@@ -44,7 +44,7 @@ for ic=nhc+1:nhc+nic
     agent{ic}=infected_cell(age,pos,PARAM.C_SPD,last_split);
 end
 
-for ic=nhc+nic+1:nhc+nic+nwc
+for wc=nhc+nic+1:nhc+nic+nwc
     pos=icloc(wc-(nhc+nic),:);
     %create white cell agents with random ages between 0 and 10 days and random
     %food levels 20-40
