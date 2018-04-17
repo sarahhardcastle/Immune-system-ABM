@@ -1,10 +1,11 @@
-function [agent]=create_agents(nr,nf)
+function [agent]=create_agents(nr,np,nw)
 
  %creates the objects representing each agent
  
 %agent - cell array containing list of objects representing agents
-%nr - number of rabbits
-%nf - number of foxes
+%nr - number of red blood cells
+%np - number of pathogens
+%nw - number of white blood cells
 
 %global parameters
 %ENV_DATA - data structure representing the environment (initialised in
@@ -18,7 +19,8 @@ function [agent]=create_agents(nr,nf)
   
 bm_size=ENV_DATA.bm_size;
 rloc=(bm_size-1)*rand(nr,2)+1;      %generate random initial positions for rabbits
-floc=(bm_size-1)*rand(nf,2)+1;      %generate random initial positions for foxes
+floc=(bm_size-1)*rand(np,2)+1;      %generate random initial positions for pathogens
+floc=(bm_size-1)*rand(np,2)+1;      %generate random initial positions for pathogens
 
 MESSAGES.pos=[rloc;floc];
 

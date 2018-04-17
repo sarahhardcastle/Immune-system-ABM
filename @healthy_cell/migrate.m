@@ -1,13 +1,13 @@
 function [agt]=migrate(agt,cn)
 
-%migration functions for class red_cell
-%agt=red_cell object
+%migration functions for class healthy_cell
+%agt=healthy_cell object
 %cn - current agent number
 
-%SUMMARY OF red_cell MIGRATE RULE
-%red_cells will migrate only if they have not eaten
-%red_cells will always try to migrate towards the nearest food source
-%The red_cell will extract the distibution of food in its LOCAL environment (at
+%SUMMARY OF healthy_cell MIGRATE RULE
+%healthy_cells will migrate only if they have not eaten
+%healthy_cells will always try to migrate towards the nearest food source
+%The healthy_cell will extract the distibution of food in its LOCAL environment (at
 %distances < its daily migration limit)
 %It will identify the location of the nearest food and migrate into it.
 %It's new position will be randomly placed within this square
@@ -27,10 +27,10 @@ global ENV_DATA IT_STATS N_IT
    %    ENV_DATA.food is  a bm_size x bm_size array containing distribution
    %    of food
 
-mig=0;                               %indicates whether red_cell has successfully migrated
+mig=0;                               %indicates whether healthy_cell has successfully migrated
 pos=agt.pos;                         %extract current position 
 cpos=round(pos);                     %round up position to nearest grid point   
-spd=agt.speed;                       %red_cell migration speed in units per iteration - this is equal to the food search radius
+spd=agt.speed;                       %healthy_cell migration speed in units per iteration - this is equal to the food search radius
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %This function reduces the computational overhead. Only LOCAL area
@@ -41,7 +41,7 @@ spd=agt.speed;                       %red_cell migration speed in units per iter
 [loc_food,xmin,ymin]=extract_local_food(cpos,spd);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
-mig=0;                          %flag will be reset to one if red_cell migrates
+mig=0;                          %flag will be reset to one if healthy_cell migrates
 [xf,yf]=find(loc_food);        %extract all rows (=x) and columns (=y) of food matrix where food is present
 if ~isempty(xf)      
     xa=xmin+xf-1;                  %x co-ordiantes of all squares containing food
@@ -65,7 +65,7 @@ if ~isempty(xf)
     end
 end
     
-if mig==0                                   %red_cell has been unable to find food, so chooses a random direction to move in      
+if mig==0                                   %healthy_cell has been unable to find food, so chooses a random direction to move in      
     cnt=1;
     dir=rand*2*pi;              
     while mig==0&cnt<=8                     

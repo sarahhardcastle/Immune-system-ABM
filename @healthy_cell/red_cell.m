@@ -1,4 +1,4 @@
-classdef red_cell   %declares red blood cell object
+classdef healthy_cell   %declares red blood cell object
     properties    %define rabbit properties (parameters) 
         age; 
         pos;
@@ -7,7 +7,7 @@ classdef red_cell   %declares red blood cell object
     end
     methods                         %note that this class definition mfile contains only the constructor method!
                                     %all additional member functions associated with this class are included as separate mfiles in the @rabbit folder. 
-        function r=red_cell(varargin) %constructor method for rabbit - assigns values to rabbit properties
+        function r=healthy_cell(varargin) %constructor method for rabbit - assigns values to rabbit properties
                 %r=rabbit(age,food,pos....)
                 %
                 %age of agent (usually 0)
@@ -24,10 +24,10 @@ classdef red_cell   %declares red blood cell object
                        r.speed=[];
                        r.last_split=[];
                     case 1              %input is already a rabbit, so just return!
-                       if (isa(varargin{1},'red_cell'))		
+                       if (isa(varargin{1},'healthy_cell'))		
                             r=varargin{1};
                        else
-                            error('Input argument is not a red_cell')
+                            error('Input argument is not a healthy_cell')
                             
                        end
                     case 4               %create a new rabbit (currently the only constructor method used)

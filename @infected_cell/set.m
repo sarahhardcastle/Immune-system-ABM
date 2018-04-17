@@ -4,8 +4,6 @@ function c=set(c,prop_name,val)
 
 switch prop_name
    
-case 'food'
-   c.food=val;
 case 'pos'
     c.pos=val; 
 case 'age'

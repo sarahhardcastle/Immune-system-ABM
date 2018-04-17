@@ -1,6 +1,6 @@
 function val=get(c,prop_name)
 
-%standard function to allow extraction of memory parameters from red_cell object
+%standard function to allow extraction of memory parameters from healthy_cell object
 
 switch prop_name
    
