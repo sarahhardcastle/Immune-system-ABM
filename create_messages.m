@@ -14,16 +14,20 @@ function create_messages(nr,nf,agent)
  global MESSAGES
  
  for an=1:length(agent)
-     if isa(agent{an},'rabbit')
+     if isa(agent{an},'healthy_cell')
         MESSAGES.atype(an)=1;
         MESSAGES.pos(an,:)=get(agent{an},'pos');
-     elseif isa(agent{an},'fox')
+     elseif isa(agent{an},'infected_cell')
         MESSAGES.atype(an)=2;
+        MESSAGES.pos(an,:)=get(agent{an},'pos');
+     elseif isa(agent{an},'white_cell')
+        MESSAGES.atype(an)=3;
         MESSAGES.pos(an,:)=get(agent{an},'pos');
      else
         MESSAGES.atype(an)=0; 
         MESSAGES.pos(an,:)=[-1 -1];
      end
      MESSAGES.dead(an)=0;
+     MESSAGES.infected(an)=2;
  end
      

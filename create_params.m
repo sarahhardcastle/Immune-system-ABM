@@ -8,15 +8,11 @@ function create_params
 
 global PARAM
 
-    PARAM.R_SPD=2;         %speed of movement - units per itn (rabbit)
-    PARAM.F_SPD=5;         %speed of movement - units per itn (fox)
-    PARAM.R_BRDFQ=10;      %breeding frequency - iterations
-    PARAM.F_BRDFQ=20;
-    PARAM.R_MINFOOD=0;      %minimum food threshold before agent dies 
-    PARAM.F_MINFOOD=0;
-    PARAM.R_FOODBRD=10;     %minimum food threshold for breeding
-    PARAM.F_FOODBRD=10;
-    PARAM.R_MAXAGE=50;      %maximum age allowed 
-    PARAM.F_MAXAGE=50;
+    PARAM.C_SPD=2;         %speed of movement - units per itn (rabbit)
+    PARAM.WC_SPD=5;         %speed of movement - units per itn (fox)
+    PARAM.C_SPLIT=10;      %cell split frequency
+    PARAM.WC_SPLIT=20;
+    PARAM.C_MAXAGE=120;      %maximum age allowed 
+    PARAM.WC_MAXAGE=20;
     
     

@@ -9,9 +9,10 @@ function initialise_results(nr,nf,nsteps)
  
  IT_STATS=struct('div_r',[zeros(1,nsteps+1);],...            %no. births per iteration
                 'div_f',[zeros(1,nsteps+1)],...
-                'died_r',[zeros(1,nsteps+1)],...			%no. agents dying per iteration
-                'died_f',[zeros(1,nsteps+1)],...		
-                'eaten',[zeros(1,nsteps+1)],...              %no. rabbits eaten per iteration
+                'died_wc',[zeros(1,nsteps+1)],...			%no. agents dying per iteration
+                'died_ic',[zeros(1,nsteps+1)],...	
+                'died_hc',[zeros(1,nsteps+1)],...		
+                'infected',[zeros(1,nsteps+1)],...              %no. rabbits eaten per iteration
                 'mig',[zeros(1,nsteps+1)],...                %no. agents migrating per iteration
                 'tot',[zeros(1,nsteps+1)],...				%total no. agents in model per iteration
                 'tot_r',[zeros(1,nsteps+1)],...             % total no. rabbits

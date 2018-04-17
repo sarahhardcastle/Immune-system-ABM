@@ -6,14 +6,12 @@ switch prop_name
    
 case 'age'
    val=c.age;
-case 'food'
-   val=c.food;
 case 'pos'
     val=c.pos;
 case 'speed'
      val=c.speed;
-case 'last_breed'
-     val=c.last_breed;  
+case 'last_infect'
+     val=c.last_infect;  
 otherwise 
    error('invalid field name')
 end
