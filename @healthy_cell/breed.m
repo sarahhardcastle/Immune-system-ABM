@@ -1,4 +1,4 @@
-function [agt, new]=split(agt,cn)
+function [agt,new]=breed(agt,cn)
 
 %spliting function for class healthy_cell
 %agt=healthy_cell object

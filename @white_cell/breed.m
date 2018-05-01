@@ -1,4 +1,4 @@
-function [agt,new]=split(agt,cn)
+function [agt,new]=breed(agt,cn)
 
 %breeding function for class white_cell
 %agt=white_cell object

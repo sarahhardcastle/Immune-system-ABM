@@ -24,7 +24,8 @@ for cn=1:n
         [curr,killed] = die(curr,cn);
         if killed==0
             new=[];
-            [curr,new] = split(curr,cn);            if isa(curr,'healthy_cell') | isa(curr,'white_cell')
+            [curr,new] = breed(curr,cn);
+            if isa(curr,'healthy_cell') | isa(curr,'white_cell')
                 if ~isempty(new)
                     n_new=n_new+1;
                     agent{n+n_new}=new;
