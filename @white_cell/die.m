@@ -28,5 +28,6 @@ age=agt.age;                %get current agent age
 if age>PARAM.F_MAXAGE      %if food level < threshold and age > max age then agent dies
     IT_STATS.died_wc(N_IT+1)=IT_STATS.died_wc(N_IT+1)+1;  %update statistics
     MESSAGES.dead(cn)=1;                %update message list
+    
     klld=1;
 end

@@ -29,7 +29,7 @@ for hc=1:nhc
     pos=hcloc(hc,:);
     %create healthy cell agents with random ages between 0 and 10 days and random
     %food levels 20-40
-    age=ceil(rand*120);
+    age=ceil(rand*PARAM.C_MAXAGE);
     last_split=round(rand*PARAM.C_SPLIT);
     agent{hc}=healthy_cell(age,pos,PARAM.C_SPD,last_split);
 end
@@ -39,16 +39,15 @@ for ic=nhc+1:nhc+nic
     pos=icloc(ic-nhc,:);
     %create infected cell agents with random ages between 0 and 10 days and random
     %food levels 20-40
-    age=ceil(rand*10);
-    last_split=round(rand*PARAM.C_SPLIT);
-    agent{ic}=infected_cell(age,pos,PARAM.C_SPD,last_split);
+    age=ceil(rand*PARAM.C_MAXAGE);
+    last_infect=round(rand*PARAM.INFECT_RATE);
+    agent{ic}=infected_cell(age,pos,PARAM.C_SPD,last_infect);
 end
 
 for wc=nhc+nic+1:nhc+nic+nwc
     pos=wcloc(wc-(nhc+nic),:);
-    %create white cell agents with random ages between 0 and 10 days and random
-    %food levels 20-40
-    age=ceil(rand*10);
-    last_split=round(rand*PARAM.C_SPLIT);
+    %create white cell agents with random ages between 0 and 10 days
+    age=ceil(rand*PARAM.WC_MAXAGE);
+    last_split=round(rand*PARAM.WC_SPLIT);
     agent{wc}=infected_cell(age,pos,PARAM.C_SPD,last_split);
 end

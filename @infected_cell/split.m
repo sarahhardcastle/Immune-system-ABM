@@ -1,4 +1,4 @@
-function [agt,eaten]=infect(agt,cn)
+function [agt,infected]=split(agt,cn)
 
 %eating function for class infected_cell
 %agt=infected_cell object
@@ -54,7 +54,8 @@ if d<=spd&length(nrst)>0    %if there is at least one  rabbit within the search 
         npos=[nx ny];    
         agt.pos=npos;               %move agent to position of this rabbit
         IT_STATS.infected(N_IT+1)=IT_STATS.infected(N_IT+1)+1;                %update model statistics
-        eaten=1;
+        infected=1;
+        disp(nrst)
         MESSAGES.infected(nrst)=1;       %send message to rabbit so it knows it's dead!
     end
 end

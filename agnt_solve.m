@@ -17,21 +17,20 @@ prev_n=n;   %remember current agent number at the start of this iteration
 %execute existing agent update loop
 for cn=1:n
 	curr=agent{cn};
-    if isa(curr,'rabbit')|isa(curr,'fox')
-        [curr,eaten]=eat(curr,cn);               %eating rules (rabbits eat food, foxes eat rabbits)
-        if eaten==0
-            curr=migrate(curr,cn);              %if no food was eaten, then migrate in search of some
-        end
-        [curr,klld]=die(curr,cn);                %death rule (from starvation or old age)
-        if klld==0
+    
+    if isa(curr,'healthy_cell')|isa(curr,'infected_cell')|isa(curr,'white_cell')
+        curr = migrate(curr,cn);
+        
+        [curr,killed] = die(curr,cn);
+        if killed==0
             new=[];
-            [curr,new]=breed(curr,cn);			%breeding rule
-            if ~isempty(new)					%if current agent has bred during this iteration
-                 n_new=n_new+1;                 %increase new agent number
-                 agent{n+n_new}=new;			%add new to end of agent list
-             end
+            [curr,new] = split(curr,cn);            if isa(curr,'healthy_cell') | isa(curr,'white_cell')
+                if ~isempty(new)
+                    n_new=n_new+1;
+                    agent{n+n_new}=new;
+                end
+            end
         end
-       agent{cn}=curr;                          %up date cell array with modified agent data structure
     end
 end
 

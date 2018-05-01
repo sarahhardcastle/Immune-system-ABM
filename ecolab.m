@@ -36,7 +36,7 @@ function ecolab(size,nhc,nic,nwc,nsteps,fmode,outImages)
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %MODEL INITIALISATION
     create_control;                     %sets up the parameters to control fmode (speed up the code during experimental testing
-    create_params;                      %sets the parameters for this simulation
+    create_params;                      %sets the parametersecolab for this simulation
     create_environment(size);           %creates environment data structure, given an environment size
     random_selection(1);                %randomises random number sequence (NOT agent order). If input=0, then simulation should be identical to previous for same initial values
     [agent]=create_agents(nhc,nic,nwc);       %create nr rabbit and nf fox agents and places them in a cell array called 'agents'
