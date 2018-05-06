@@ -25,6 +25,11 @@ for cn=1:n
         if killed==0
             new=[];
             [curr,new] = breed(curr,cn);
+            
+            if isa(curr, 'white_cell')
+                [curr, eaten] = eat(curr, cn)
+            end
+            
             if isa(curr,'healthy_cell') | isa(curr,'white_cell')
                 if ~isempty(new)
                     n_new=n_new+1;

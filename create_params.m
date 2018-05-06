@@ -8,12 +8,12 @@ function create_params
 
 global PARAM
 
-    PARAM.C_SPD=2;         %speed of movement - units per itn (rabbit)
+    PARAM.C_SPD=5;         %speed of movement - units per itn (rabbit)
     PARAM.WC_SPD=5;         %speed of movement - units per itn (fox)
     PARAM.C_SPLIT=10;      %cell split frequency
     PARAM.WC_SPLIT=20;
     PARAM.INFECT_RATE=40;
     PARAM.C_MAXAGE=120;      %maximum age allowed 
-    PARAM.WC_MAXAGE=20;
-    
+    PARAM.WC_MAXAGE=120;
+%     PARAM.F_BRDFQ= 10;
     

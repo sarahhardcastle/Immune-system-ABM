@@ -57,8 +57,15 @@ if d<=spd&length(nrst)>0    %if there is at least one  rabbit within the search 
         infected=1;
         disp(nrst);
         MESSAGES.infected(nrst)=1;       %send message to rabbit so it knows it's dead!
+    else
+        MESSAGES.infected(nrst)=2;
+        infected = 2;
     end
+else 
+    MESSAGES.infected(nrst)=2;
+    infected = 2;
 end
+
 
 
 

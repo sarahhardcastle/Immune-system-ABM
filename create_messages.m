@@ -28,6 +28,6 @@ function create_messages(nhc,nic,nwc,agent)
         MESSAGES.pos(an,:)=[-1 -1];
      end
      MESSAGES.dead(an)=0;
-     MESSAGES.infected(an)=2;
+     MESSAGES.infected(an)=2; % 2 = not infected.
  end
      

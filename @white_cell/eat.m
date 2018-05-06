@@ -55,6 +55,7 @@ if d<=spd&length(nrst)>0    %if there is at least one  pathogen within the searc
         agt.pos=npos;               %move agent to position of this pathogen
         IT_STATS.eaten(N_IT+1)=IT_STATS.eaten(N_IT+1)+1;                %update model statistics
         eaten=1;
+        agt.age=agt.age + 1;
         MESSAGES.dead(nrst)=1;       %send message to pathogen so it knows it's dead!
     end
 end
