@@ -17,7 +17,6 @@ prev_n=n;   %remember current agent number at the start of this iteration
 %execute existing agent update loop
 for cn=1:n
 	curr=agent{cn};
-    disp(curr);
     
     if isa(curr,'healthy_cell')||isa(curr,'infected_cell')||isa(curr,'white_cell')
         curr = migrate(curr,cn);
