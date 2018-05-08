@@ -10,8 +10,8 @@ case 'pos'
     val=c.pos;
 case 'speed'
      val=c.speed;
-case 'last_breed'
-     val=c.last_breed; 
+case 'last_split'
+     val=c.last_split; 
 otherwise 
    error('invalid field name')
 end

@@ -29,15 +29,6 @@ global MESSAGES IT_STATS N_IT ENV_DATA
 nagent=cell(1,temp_n);                  %initialise list for surviving agents
 nn=0;                                   %tracks number of surviving agents
 for cn=1:temp_n
-    try MESSAGES.infected(cn)==1
-        if MESSAGES.infected(cn)==1
-            infected = 1;
-        else
-            infected = 0;
-        end
-    catch ex
-        infected = 0;
-    end
     if isempty(agent{cn})               %agent died in a previous iteration (not the current one)
         dead=1;
     elseif cn<=prev_n                   %agent is not new, therefore it might have died
@@ -48,10 +39,20 @@ for cn=1:temp_n
     if dead==0                          %if agent is not dead
         nagent{cn}=agent{cn};           %copy object into the new list
         pos=get(agent{cn},'pos');
-        MESSAGES.pos(cn,:)=pos;                    
+        MESSAGES.pos(cn,:)=pos;  
          if isa(agent{cn},'healthy_cell')
+             
+             try if MESSAGES.infected(cn) == 1
+                    infected = 1;
+                 else
+                     infected = 0;
+                 end
+             catch ex
+                 infected = 0;
+             end
+             
              if infected == 1
-                MESSAGES.atype=2;
+                MESSAGES.atype(cn)=2;
                 IT_STATS.tot_ic(N_IT+1)=IT_STATS.tot_ic(N_IT+1)+1;
              else
                  MESSAGES.atype(cn)=1;
@@ -61,7 +62,7 @@ for cn=1:temp_n
              MESSAGES.atype(cn)=2;
              IT_STATS.tot_ic(N_IT+1)=IT_STATS.tot_ic(N_IT+1)+1;
          elseif isa(agent{cn},'white_cell')
-             MESSAGES.atype(cn)=2;
+             MESSAGES.atype(cn)=3;
              IT_STATS.tot_wc(N_IT+1)=IT_STATS.tot_wc(N_IT+1)+1;
          end
          MESSAGES.dead(cn)=0;           %clear death message

@@ -3,7 +3,7 @@ classdef white_cell          %declares white_cell object
         age;
         pos;
         speed;
-        last_split;
+        last_breed;
     end
     methods                         %note that this class definition mfile contains only the constructor method!
                                     %all additional member functions associated with this class are included as separate mfiles in the @white_cell folder. 
@@ -21,7 +21,7 @@ classdef white_cell          %declares white_cell object
                     f.age=[];	
                     f.pos=[];
                     f.speed=[];
-                    f.last_split=[];
+                    f.last_breed=[];
                 case 1                         %input is already a white_cell, so just return!
                     if (isa(varargin{1},'white_cell'))		
                         f=varargin{1};
@@ -32,7 +32,7 @@ classdef white_cell          %declares white_cell object
                     f.age=varargin{1};               %age of white_cell object in number of iterations
                     f.pos=varargin{2};               %current position in Cartesian co-ords [x y]
                     f.speed=varargin{3};             %number of kilometres white_cell can migrate in 1 day
-                    f.last_split=varargin{4};        %number of iterations since white_cell last reproduced.
+                    f.last_breed=varargin{4};        %number of iterations since white_cell last reproduced.
                 otherwise
                     error('Invalid no. of input arguments for white_cell')
             end

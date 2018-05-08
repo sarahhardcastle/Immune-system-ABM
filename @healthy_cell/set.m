@@ -11,7 +11,7 @@ case 'age'
 case 'speed'
    c.speed=val; 
 case 'last_split'
-   c.last_breed=val; 
+   c.last_split=val; 
 otherwise 
    error('invalid field name')
 end

@@ -21,7 +21,7 @@ function [agt,eaten]=eat(agt,cn)
 %MESSAGES is a data structure containing information that agents need to
 %broadcast to each other
    %    MESSAGES.atype - n x 1 array listing the type of each agent in the model
-   %    (1=pathogen, 2-white_cell, 3=dead agent)
+   %    (1=healthy_cell, 2=infected_cell, 3=white_cell)
    %    MESSAGES.pos - list of every agent position in [x y]
    %    MESSAGE.dead - n x1 array containing ones for agents that have died
    %    in the current iteration
@@ -36,7 +36,7 @@ spd=agt.speed;                      %white_cell migration speed in units per ite
 eaten=0;
 
 typ=MESSAGES.atype;                                         %extract types of all agents
-rb=find(typ==1);                                            %indices of all pathogens
+rb=find(typ==2);                                            %indices of all pathogens
 rpos=MESSAGES.pos(rb,:);                                     %extract positions of all pathogens
 csep=sqrt((rpos(:,1)-pos(:,1)).^2+(rpos(:,2)-pos(:,2)).^2);  %calculate distance to all pathogens
 [d,ind]=min(csep);                                            %d is distance to closest pathogen, ind is index of that pathogen

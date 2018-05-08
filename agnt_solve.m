@@ -17,8 +17,9 @@ prev_n=n;   %remember current agent number at the start of this iteration
 %execute existing agent update loop
 for cn=1:n
 	curr=agent{cn};
+    disp(curr);
     
-    if isa(curr,'healthy_cell')|isa(curr,'infected_cell')|isa(curr,'white_cell')
+    if isa(curr,'healthy_cell')||isa(curr,'infected_cell')||isa(curr,'white_cell')
         curr = migrate(curr,cn);
         
         [curr,killed] = die(curr,cn);
@@ -27,10 +28,10 @@ for cn=1:n
             [curr,new] = breed(curr,cn);
             
             if isa(curr, 'white_cell')
-                [curr, eaten] = eat(curr, cn)
+                [curr, eaten] = eat(curr, cn);
             end
             
-            if isa(curr,'healthy_cell') | isa(curr,'white_cell')
+            if isa(curr,'healthy_cell') || isa(curr,'white_cell')
                 if ~isempty(new)
                     n_new=n_new+1;
                     agent{n+n_new}=new;

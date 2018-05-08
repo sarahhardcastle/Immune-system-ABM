@@ -13,17 +13,19 @@ global PARAM IT_STATS N_IT
 %frequency parameters for both white_celles and rabbits
 
    
-tlim=PARAM.F_BRDFQ;         %minimum interval required for breeding
+tlim=PARAM.WC_SPLIT;         %minimum interval required for breeding
 age=agt.age;                %get current agent age
 last_breed=agt.last_breed;  %length of time since agent last reproduced
 pos=agt.pos;                %current position
 
-if last_breed>=tlim  %if food > threshold and age > interval, then create offspring
+if last_breed>=tlim
+   disp('Breed')
    new=white_cell(0,pos,PARAM.F_SPD,0);   %new white_cell agent
    agt.last_breed=0;
    agt.age=age+1;
    IT_STATS.div_f(N_IT+1)=IT_STATS.div_f(N_IT+1)+1;             %update statistics
-else                            
+else
+    disp('No Breed')
     agt.age=age+1;          %not able to breed, so increment age by 1
     agt.last_breed=last_breed+1;
     new=[];

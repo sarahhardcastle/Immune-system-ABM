@@ -15,5 +15,5 @@ global PARAM
     PARAM.INFECT_RATE=40;
     PARAM.C_MAXAGE=120;      %maximum age allowed 
     PARAM.WC_MAXAGE=120;
-%     PARAM.F_BRDFQ= 10;
+    PARAM.F_BRDFQ= 2;
     

@@ -55,7 +55,6 @@ if d<=spd&length(nrst)>0    %if there is at least one  rabbit within the search 
         agt.pos=npos;               %move agent to position of this rabbit
         IT_STATS.infected(N_IT+1)=IT_STATS.infected(N_IT+1)+1;                %update model statistics
         infected=1;
-        disp(nrst);
         MESSAGES.infected(nrst)=1;       %send message to rabbit so it knows it's dead!
     else
         MESSAGES.infected(nrst)=2;

@@ -49,5 +49,5 @@ for wc=nhc+nic+1:nhc+nic+nwc
     %create white cell agents with random ages between 0 and 10 days
     age=ceil(rand*PARAM.WC_MAXAGE);
     last_breed=round(rand*PARAM.WC_SPLIT);
-    agent{wc}=infected_cell(age,pos,PARAM.C_SPD,last_breed);
+    agent{wc}=white_cell(age,pos,PARAM.C_SPD,last_breed);
 end

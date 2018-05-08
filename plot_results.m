@@ -91,7 +91,7 @@ function plot_results(agent,nsteps,fmode,outImages)
                 elseif isa(agent{cn}, 'infected_cell')
                     go=plot(pos(1), pos(2), 'g.');
                 elseif isa(agent{cn}, 'white_cell')
-                    wo=plot(pos(1), pos(2), 'b.')
+                    wo=plot(pos(1), pos(2), 'b.');
                 end
             end
         end
