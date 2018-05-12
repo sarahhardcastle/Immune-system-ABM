@@ -24,11 +24,13 @@ for cn=1:n
         [curr,killed] = die(curr,cn);
         if killed==0
             new=[];
-            [curr,new] = breed(curr,cn);
+           
             
             if isa(curr, 'white_cell')
                 [curr, eaten] = eat(curr, cn);
             end
+            
+            [curr,new] = breed(curr,cn);
             
             if isa(curr,'healthy_cell') || isa(curr,'white_cell')
                 if ~isempty(new)
@@ -37,6 +39,7 @@ for cn=1:n
                 end
             end
         end
+        agent{cn}=curr;
     end
 end
 

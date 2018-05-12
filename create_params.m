@@ -14,6 +14,6 @@ global PARAM
     PARAM.WC_SPLIT=20;
     PARAM.INFECT_RATE=40;
     PARAM.C_MAXAGE=120;      %maximum age allowed 
-    PARAM.WC_MAXAGE=120;
+    PARAM.WC_MAXAGE=100;
     PARAM.F_BRDFQ= 2;
     

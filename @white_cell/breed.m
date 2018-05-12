@@ -21,10 +21,10 @@ pos=agt.pos;                %current position
 if last_breed>=tlim
    new=white_cell(0,pos,PARAM.WC_SPD,0);   %new white_cell agent
    agt.last_breed=0;
-   agt.age=age+1;
+   agt.age = age + 1;
    IT_STATS.div_f(N_IT+1)=IT_STATS.div_f(N_IT+1)+1;             %update statistics
 else
-    agt.age=age+1;          %not able to breed, so increment age by 1
-    agt.last_breed=last_breed+1;
+    agt.age = age + 1;          %not able to breed, so increment age by 1
+    agt.last_breed= last_breed + 1;
     new=[];
 end
