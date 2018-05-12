@@ -22,9 +22,7 @@ function initialise_results(nhc,nic,nwc,nsteps)
                 'tfood',[zeros(1,nsteps+1)]);               %remaining vegetation level
             
  
- tf=sum(sum(ENV_DATA.food));            %remaining food is summed over all squares in the environment
  IT_STATS.tot(1)=nhc+nic+nwc;
  IT_STATS.tot_hc(1)=nhc;
  IT_STATS.tot_ic(1)=nic;
  IT_STATS.tot_wc(1)=nwc;
- IT_STATS.tfood(1)=tf;

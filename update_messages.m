@@ -74,4 +74,3 @@ for cn=1:temp_n
     end
 end
 IT_STATS.tot(N_IT+1)=nn;                %update total agent number
-IT_STATS.tfood(N_IT+1)=sum(sum(ENV_DATA.food));   %total food remaining

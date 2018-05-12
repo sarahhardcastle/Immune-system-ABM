@@ -17,16 +17,15 @@ global PARAM IT_STATS N_IT MESSAGES
 %MESSAGES is a data structure containing information that agents need to
 %broadcast to each other
    %    MESSAGES.atype - n x 1 array listing the type of each agent in the model
-   %    (1=rabbit, 2-white_cell, 3=dead agent)
    %    MESSAGES.pos - list of every agent position in [x y]
    %    MESSAGE.dead - n x1 array containing ones for agents that have died
    %    in the current iteration
    
-klld=0;
-age=agt.age;                %get current agent age
+klld = 0;
+age = agt.age;                %get current agent age
 
-if age>PARAM.WC_MAXAGE      %if food level < threshold and age > max age then agent dies
-    IT_STATS.died_wc(N_IT+1)=IT_STATS.died_wc(N_IT+1)+1;  %update statistics
-    MESSAGES.dead(cn)=1;                %update message list
-    klld=1;
+if age > PARAM.WC_MAXAGE      %if age > max age then agent dies
+    IT_STATS.died_wc(N_IT+1) = IT_STATS.died_wc(N_IT+1)+1;  %update statistics
+    MESSAGES.dead(cn) = 1;                %update message list
+    klld = 1;
 end

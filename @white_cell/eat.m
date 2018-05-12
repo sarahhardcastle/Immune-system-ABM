@@ -1,7 +1,7 @@
 function [agt,eaten]=eat(agt,cn)
 
 %eating function for class white_cell
-%agt=white_cell object
+%agt = white_cell object
 %cn - current agent number
 %eaten = 1 if white_cell successfully finds a pathogen, =0 otherwise
 
