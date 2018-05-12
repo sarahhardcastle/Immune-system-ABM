@@ -13,12 +13,12 @@ ecolab(size, healthy_cells, bacteria, white_cells, iterations, fast_mode(optiona
 ```
 
 where:
-size : The size of the model environment
-healthy_cells : the initial number of healthy cells
-bacteria : the intial number of bacteria
-white_cells : the initial number of white cells
-iterations : the number of iterations to run the simulation for
-fast_mode(optional) : Boolean to control whether to use fast mode
+size : The size of the model environment \n
+healthy_cells : the initial number of healthy cells \n
+bacteria : the intial number of bacteria \n
+white_cells : the initial number of white cells \n
+iterations : the number of iterations to run the simulation for \n
+fast_mode(optional) : Boolean to control whether to use fast mode \n
 out_images(optional) : Boolean to enable image output
 
 # System parameters
